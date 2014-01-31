@@ -48,8 +48,7 @@ body {
   outline-style: none;
 }
 
-.topcoat-text-input,
-.topcoat-text-input--large {
+.topcoat-select {
   padding: 0;
   margin: 0;
   font: inherit;
@@ -58,42 +57,66 @@ body {
   border: none;
 }
 
-.topcoat-text-input,
-.topcoat-text-input--large {
+.topcoat-select {
   vertical-align: top;
   outline: none;
 }
 
-.topcoat-text-input,
-.topcoat-text-input--large {
+.topcoat-select {
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.topcoat-select {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   background-clip: padding-box;
 }
 
-.topcoat-text-input:disabled,
-.topcoat-text-input--large:disabled,
-.topcoat-text-input--large:disabled {
+.topcoat-select {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.topcoat-select:disabled {
   opacity: 0.3;
   cursor: default;
   pointer-events: none;
 }
 
+.topcoat-select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.topcoat-select::-ms-expand {
+  display: none;
+}
+
 /* topdoc
-  name: Text input
-  description: Topdoc text input
+  name: Topcoat Select
+  description: A component that lets you select things
   modifiers:
     :disabled: Disabled state
     :focus: Focused
     :invalid: Hover state
   markup:
-    <input type="text" class="topcoat-text-input" placeholder="text" value="">
-    <br>
-    <br>
-    <input type="text" class="topcoat-text-input" placeholder="text" value="" disabled>
-    <br>
-    <br>
-    <input type="text" class="topcoat-text-input" placeholder="text" value="fail" pattern="not-fail">
+    <select class="topcoat-select">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+    <select class="topcoat-select" disabled>
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
   tags:
     - desktop
     - mobile
@@ -101,97 +124,42 @@ body {
     - input
 */
 
-.topcoat-text-input,
-.topcoat-text-input--large {
-  line-height: 3rem;
+.topcoat-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  appearance: button;
+  text-indent: 0.01px;
+  text-overflow: '';
+  padding: 0.7rem 1.3rem 0.7rem 1rem;
   font-size: 16px;
+  font-weight: 400;
+  height: 3rem;
   letter-spacing: 1px;
-  padding: 0 1.25rem;
-  border: 1px solid hsla(168, 8%, 65%, 1);
+  color: hsla(0, 0%, 27%, 1);
+  text-shadow: 0 1px hsla(0, 100%, 100%, 1);
   border-radius: 6px;
-  background-color: hsla(0, 100%, 100%, 1);
-  box-shadow: inset 0 1px 0 hsla(0, 0%, 0%, 0.23);
-  color: hsla(0, 0%, 27%, 1);
-  vertical-align: top;
+  background-color: hsla(165, 8%, 91%, 1);
+  box-shadow: inset 0 1px hsla(0, 100%, 100%, 1);
+  border: 1px solid hsla(168, 8%, 65%, 1);
+  background-image: url('../img/dropdown.svg');
+  background-repeat: no-repeat;
+  background-position: center right;
 }
 
-.topcoat-text-input:focus,
-.topcoat-text-input--large:focus,
-.topcoat-text-input--large:focus {
-  background-color: hsla(0, 100%, 100%, 1);
-  color: hsla(0, 0%, 27%, 1);
+.topcoat-select:hover {
+  background-color: hsla(180, 7%, 94%, 1);
+}
+
+.topcoat-select:active {
+  background-color: hsla(180, 5%, 83%, 1);
+  box-shadow: inset 0 1px hsla(0, 0%, 0%, 0.1);
+}
+
+.topcoat-select:focus {
   border: 1px solid hsla(227, 100%, 50%, 1);
-  box-shadow: inset 0 1px 0 hsla(0, 0%, 0%, 0.23), 0 0 0 2px hsla(208, 82%, 69%, 1);
-}
-
-.topcoat-text-input:disabled::-webkit-input-placeholder,
-.topcoat-text-input--large:disabled::-webkit-input-placeholder,
-.topcoat-text-input--large:disabled::-webkit-input-placeholder {
-  color: hsla(0, 0%, 27%, 1);
-}
-
-.topcoat-text-input:disabled::-moz-placeholder,
-.topcoat-text-input--large:disabled::-moz-placeholder,
-.topcoat-text-input--large:disabled::-moz-placeholder {
-  color: hsla(0, 0%, 27%, 1);
-}
-
-.topcoat-text-input:disabled:-ms-input-placeholder,
-.topcoat-text-input--large:disabled:-ms-input-placeholder,
-.topcoat-text-input--large:disabled:-ms-input-placeholder {
-  color: hsla(0, 0%, 27%, 1);
-}
-
-.topcoat-text-input:invalid,
-.topcoat-text-input--large:invalid {
-  border: 1px solid hsla(1, 81%, 61%, 1);
-}
-
-/* topdoc
-  name: Large Text Input
-  description: A bigger input, still for text.
-  modifiers:
-    :disabled: Disabled state
-    :focus: Focused
-    :invalid: Hover state
-  markup:
-    <input type="text" class="topcoat-text-input--large" value="" placeholder="text">
-    <br>
-    <br>
-    <input type="text" class="topcoat-text-input--large" value="" placeholder="text" disabled>
-    <br>
-    <br>
-    <input type="text" class="topcoat-text-input--large" placeholder="text" value="fail" pattern="not-fail">
-  tags:
-    - desktop
-    - light
-    - mobile
-    - form
-    - input
-    - large
-*/
-
-.topcoat-text-input--large {
-  line-height: 4.375rem;
-  font-size: 1.3rem;
-}
-
-.topcoat-text-input--large:disabled {
-  color: hsla(0, 0%, 27%, 1);
-}
-
-.topcoat-text-input--large:disabled::-webkit-input-placeholder {
-  color: hsla(0, 0%, 27%, 1);
-}
-
-.topcoat-text-input--large:disabled::-moz-placeholder {
-  color: hsla(0, 0%, 27%, 1);
-}
-
-.topcoat-text-input--large:disabled:-ms-input-placeholder {
-  color: hsla(0, 0%, 27%, 1);
-}
-
-.topcoat-text-input--large:invalid {
-  border: 1px solid hsla(1, 81%, 61%, 1);
+  box-shadow: 0 0 0 2px hsla(208, 82%, 69%, 1);
+  outline: 0;
 }
