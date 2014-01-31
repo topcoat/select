@@ -1,9 +1,8 @@
-Topcoat Text Input
+Topcoat Select
 ==================
 
-The default Topcoat text input skin.
-Uses topcoat-input-base for reset and topcoat-theme for variables.
+The default Topcoat select.
 
-[![Build Status](https://travis-ci.org/topcoat/text-input.png?branch=topdoc-0.2)](https://travis-ci.org/topcoat/text-input)
+[![Build Status](https://travis-ci.org/topcoat/select.png?branch=topdoc-0.2)](https://travis-ci.org/topcoat/select)
 
-[![NPM](https://nodei.co/npm/topcoat-text-input.png)](https://nodei.co/npm/topcoat-text-input/)
+[![NPM](https://nodei.co/npm/topcoat-select.png)](https://nodei.co/npm/topcoat-select/)
