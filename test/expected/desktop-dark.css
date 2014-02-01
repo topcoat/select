@@ -147,6 +147,7 @@ body {
   background-image: url('../img/dropdown.svg');
   background-repeat: no-repeat;
   background-position: center right;
+  min-width: 3.4rem;
 }
 
 .topcoat-select:hover {
