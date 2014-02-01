@@ -1,6 +1,6 @@
 {
   "name": "topcoat-select",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Topcoat select skin",
   "main": "index.html",
   "style": "src/select.css",
