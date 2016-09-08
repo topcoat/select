@@ -1,8 +1,8 @@
-Topcoat Select
-==================
+# Topcoat Select
 
-The default Topcoat select.
+[![Build Status](https://travis-ci.org/topcoat/select.svg?branch=master)](https://travis-ci.org/topcoat/select) [![npm version](https://badge.fury.io/js/topcoat-select.svg)](https://badge.fury.io/js/topcoat-select)
 
-[![Build Status](https://travis-ci.org/topcoat/select.png?branch=topdoc-0.2)](https://travis-ci.org/topcoat/select)
+---
 
-[![NPM](https://nodei.co/npm/topcoat-select.png)](https://nodei.co/npm/topcoat-select/)
+Default skin for topcoat select.
+Uses [topcoat-select-base](https://github.com/topcoat/select-base) for reset and topcoat variables.

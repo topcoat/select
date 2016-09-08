@@ -1,69 +1,38 @@
-/**
-*
-* Copyright 2012 Adobe Systems Inc.;
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*
-*/
+var assert = require('assert');
+var fs = require('fs');
 
-/*global require, describe, it*/
+function read(file) {
+    return fs.readFileSync(file, 'utf8');
+}
 
-var grunt = require('grunt'),
-    assert = require('assert');
+describe('Topcoat Select', function() {
 
-describe('Topcoat text select', function() {
-    'use strict';
-
-    it('should output correct desktop dark css', function() {
-        var actual = grunt.file.read('css/desktop-dark.css');
-        var expected = grunt.file.read('test/expected/desktop-dark.css');
+    it('should create desktop dark', function() {
+        console.log(require('../package.json').name)
+        var actual = read('css/desktop-dark-select.css').trim();
+        var expected = read('test/expected/desktop-dark-select.css').trim();
         assert.equal(actual, expected, 'should generate correct css');
     });
 
-    it('should output correct desktop light css', function() {
-        var actual = grunt.file.read('css/desktop-light.css');
-        var expected = grunt.file.read('test/expected/desktop-light.css');
+    it('should create desktop light', function() {
+        console.log(require('../package.json').name)
+        var actual = read('css/desktop-light-select.css').trim();
+        var expected = read('test/expected/desktop-light-select.css').trim();
         assert.equal(actual, expected, 'should generate correct css');
     });
 
-    it('should output correct mobile dark css', function() {
-        var actual = grunt.file.read('css/mobile-dark.css');
-        var expected = grunt.file.read('test/expected/mobile-dark.css');
+    it('should create mobile dark', function() {
+        console.log(require('../package.json').name)
+        var actual = read('css/mobile-dark-select.css').trim();
+        var expected = read('test/expected/mobile-dark-select.css').trim();
         assert.equal(actual, expected, 'should generate correct css');
     });
 
-    it('should output correct mobile light css', function() {
-        var actual = grunt.file.read('css/mobile-light.css');
-        var expected = grunt.file.read('test/expected/mobile-light.css');
+    it('should create mobile light', function() {
+        console.log(require('../package.json').name)
+        var actual = read('css/mobile-light-select.css').trim();
+        var expected = read('test/expected/mobile-light-select.css').trim();
         assert.equal(actual, expected, 'should generate correct css');
-    });
-
-    it('should not have any unrendered variables desktop dark', function() {
-        var actual = grunt.file.read('css/desktop-dark.css');
-        assert.equal(actual.match(/var-[a-z-]*[a-z]+/g), null, 'should not have missing vars');
-    });
-    it('should not have any unrendered variables desktop light', function() {
-        var actual = grunt.file.read('css/desktop-light.css');
-        assert.equal(actual.match(/var-[a-z-]*[a-z]+/g), null, 'should not have missing vars');
-    });
-    it('should not have any unrendered variables mobile dark', function() {
-        var actual = grunt.file.read('css/mobile-dark.css');
-        assert.equal(actual.match(/var-[a-z-]*[a-z]+/g), null, 'should not have missing vars');
-    });
-    it('should not have any unrendered variables mobile light', function() {
-        var actual = grunt.file.read('css/mobile-light.css');
-        assert.equal(actual.match(/var-[a-z-]*[a-z]+/g), null, 'should not have missing vars');
     });
 
 });
-

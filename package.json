@@ -1,21 +1,25 @@
 {
   "name": "topcoat-select",
-  "version": "0.0.2",
-  "description": "Topcoat select skin",
-  "main": "index.html",
-  "style": "src/select.css",
+  "description": "Topcoat default select skin",
+  "style": "src/topcoat-button",
   "directories": {
-    "test": "test",
-    "lib": "src",
-    "bin": "css"
+    "test": "test"
   },
   "scripts": {
-    "test": "grunt test",
-    "prepublish": "grunt"
+    "test": "mocha test/",
+    "build:desktop-dark": "rsn --namespace='topcoat' -o ./css/desktop-dark-select.css -p [topcoat-variables-shared,topcoat-variables-desktop,topcoat-variables-dark,topcoat-fonts,topcoat-root] ./src/topcoat-select.css",
+    "build:desktop-light": "rsn --namespace='topcoat' -o ./css/desktop-light-select.css -p [topcoat-variables-shared,topcoat-variables-desktop,topcoat-variables-light,topcoat-fonts,topcoat-root] ./src/topcoat-select.css",
+    "build:mobile-dark": "rsn --namespace='topcoat' -o ./css/mobile-dark-select.css -p [topcoat-variables-shared,topcoat-variables-mobile,topcoat-variables-dark,topcoat-fonts,topcoat-root] ./src/topcoat-select.css",
+    "build:mobile-light": "rsn --namespace='topcoat' -o ./css/mobile-light-select.css -p [topcoat-variables-shared,topcoat-variables-mobile,topcoat-variables-light,topcoat-fonts,topcoat-root] ./src/topcoat-select.css",
+    "build": "rm -rfv ./css/* && npm run build:desktop-dark && npm run build:desktop-light && npm run build:mobile-dark && npm run build:mobile-light",
+    "pretest": "npm run build",
+    "prepublish": "npm run topdoc",
+    "topdoc": "npm run build && rm -rfv ./docs/* && topdoc -s ./css -d ./docs -p 'Topcoat Button' -t './node_modules/topdoc-theme'",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/topcoat/select.git"
+    "url": "https://github.com/topcoat/select.git"
   },
   "keywords": [
     "select",
@@ -25,26 +29,36 @@
     "base",
     "adobe"
   ],
-  "author": "Garth Braithwaite (http://garthdb.com/)",
+  "author": "Garth Braithwaite <garthdb@gmail.com> (http://garthdb.com)",
   "contributors": [
-    "Kristofer Joseph (http://twitter.com/dam)",
-    "Garth Braithwaite (http://garthdb.com/)"
+    "Kristofer Joseph <kristoferjoseph@gmail.com> (http://kristoferjoseph.com/)"
   ],
-  "license": "Apache2",
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-cssmin": "~0.7.0",
-    "grunt-simple-mocha": "~0.4.0",
-    "grunt-topcoat": "~0.1.3",
-    "grunt-topdoc": "~0.2.0",
-    "topdoc-theme": "~0.4.4",
-    "topcoat-theme-desktop-light": "~0.1.12",
-    "topcoat-theme-desktop-dark": "~0.1.10",
-    "topcoat-theme-mobile-dark": "~0.1.12",
-    "topcoat-theme-mobile-light": "~0.1.10"
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/topcoat/topcoat/issues"
   },
   "dependencies": {
-    "topcoat-select-base": "0.0.3"
+    "topcoat-select-base": "^0.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "cz-customizable": "^4.0.0",
+    "mocha": "^3.0.2",
+    "resin": "^1.2.1",
+    "semantic-release": "^4.3.5",
+    "topcoat-fonts": "^0.3.0",
+    "topcoat-root": "^1.0.0",
+    "topcoat-variables-dark": "^1.1.2",
+    "topcoat-variables-desktop": "^1.1.0",
+    "topcoat-variables-light": "^1.1.0",
+    "topcoat-variables-mobile": "^1.1.0",
+    "topcoat-variables-shared": "^1.1.0",
+    "topdoc": "^0.4.0",
+    "topdoc-theme": "^0.6.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }
